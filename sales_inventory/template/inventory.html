@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h2 class="mb-4">Inventory Management</h2>
+
+<form method="POST" action="{% url 'update_inventory' %}">
+    {% csrf_token %}
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Product Name</th>
+                <th>SKU</th>
+                <th>Current Stock</th>
+                <th>Update Quantity</th>
+                
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for item in inventory %}
+            <tr>
+                <td>{{ item.product.name }}</td>
+                <td>{{ item.product.sku }}</td>
+                <td>{{ item.quantity }}</td>
+                
+
+                <td>
+                    <input
+                        type="number"
+                        name="quantity_{{ item.id }}"
+                        value="{{ item.quantity }}"
+                        min="0"
+                        class="form-control"
+                        required
+                    >
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <button type="submit" class="btn btn-success">
+        Update Inventory
+    </button>
+</form>
+
+{% endblock %}

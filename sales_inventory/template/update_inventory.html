@@ -1,0 +1,8 @@
+<form method="POST" action="{% url 'update_inventory' %}">
+    {% csrf_token %}
+    {% for item in inventory %}
+        <label>{{ item.product.name }}</label>
+        <input type="number" name="quantity_{{ item.id }}" value="{{ item.quantity }}">
+    {% endfor %}
+    <button type="submit">Update Inventory</button>
+</form>
