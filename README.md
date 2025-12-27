@@ -1,5 +1,10 @@
 # Sales_Inventory
-
+I have used Postgres DB for this Sales_Inventory project.
+Developed a Sales Order & Inventory Management System using Django and DRF with PostgreSQL.
+Implemented real-time stock validation and automatic inventory updates to prevent over-ordering.
+Designed a complete order lifecycle workflow (Draft → Confirmed → Delivered) with transactional safety.
+Enforced role-based access control, allowing only staff users to manage inventory.
+Built and tested RESTful APIs using Postman for seamless backend operations.
 A backend-driven Sales Order & Inventory Management System built using Django and Django Rest Framework (DRF).
 The system allows admin users to manage products, inventory, and dealers, while dealers can place orders with automatic stock validation and tracking.
 If user create dby superuser and if he is a staff then only he can access the inventory
